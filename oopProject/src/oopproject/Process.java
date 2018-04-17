@@ -1,3 +1,5 @@
+package oopproject;
+
 import java.util.*;
 
 public class Process {
@@ -7,7 +9,8 @@ public class Process {
     //create cards and cardg
         String cmember;
         String member;
-    //variable ArrayList
+
+    //variable CArd String ArrayList
         String rcards;
         String rcardg;
         String name;
@@ -32,21 +35,19 @@ public class Process {
                
             if(touch > 2){
                     
-                    System.out.println("Try again...\n");
+                    System.out.print("Try again...\n");
             }       
         }while(touch > 2); 
         
         return touch;
     }
     
-    public boolean Register(ArrayList<String> cards , ArrayList<String> cardg){
+    public boolean Register(ArrayList<String> cards , ArrayList<String> cardg , ArrayList<Integer> moneys , ArrayList<Integer> moneyg , ArrayList<String> names , ArrayList<String> nameg){
         
         String student = null;
         boolean list1 = true;
         System.out.println("\n====== Register ======");
-        System.out.print("Entre your name >> ");
-        this.name = fulls.nextLine().toUpperCase();
-     
+       
         do{
             System.out.print("Are you student [Y/N] >> ");
             student = fulls.nextLine().toUpperCase();
@@ -57,12 +58,15 @@ public class Process {
     //Let s = syudent card + 5 nenber.
                 String cmember = "s";
                 
-            do{   
+            do{
+                System.out.print("Entre your name >> ");
+                    this.name = fulls.nextLine().toUpperCase(); 
                 System.out.print("Put your five number >> " + cmember);
-                member = fulls.nextLine();
+                    member = fulls.nextLine();
                 this.rcards = cmember+member;
                 cards.add(this.rcards);
-                
+                moneys.add(0);
+                names.add(this.name);
             }while(member.length() != 5);  
             
         }else{
@@ -70,14 +74,20 @@ public class Process {
     //Let g = general card + 5 nember.
                 String cmember = "g";
                 
-            do{    
+            do{
+                System.out.print("Entre your name >> ");
+                    this.name = fulls.nextLine().toUpperCase(); 
                 System.out.print("Put your five munber >> " + cmember);
-                member = fulls.nextLine(); 
+                    member = fulls.nextLine(); 
                 this.rcardg = cmember+member;
                 cardg.add(this.rcardg);
+                moneyg.add(0);
+                nameg.add(this.name);
             }while(member.length() != 5);    
             
         }  
+        
+        Login(cards , cardg);
         
         return list1;
                
@@ -87,19 +97,22 @@ public class Process {
         
         boolean list2 = true;
         
-        System.out.print("\nNumber a member card >> ");
-        this.card = touchs.nextLine();
-     
+        System.out.println("\n====== Login ======");
+        System.out.print("Number a member card >> " );
+        card = fulls.nextLine();
+ 
         for(; i<cards.size() || i<cardg.size(); i++){
-            if(cards.equals(card) || cardg.equals(card)){
-                Main();
-            }else{list2=false;}
+            //System.out.println(cards.get(i));
+            for(; cards.get(i).equals(card) || cardg.get(i).equals(card) ; i++){
+                Menus();
+            list2=false;
+            }
         }
         
         return card;
     }
     
-    public int Main(){
+    public int Menus(){
         
         boolean list3 = true;
         
