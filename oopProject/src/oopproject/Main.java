@@ -8,9 +8,14 @@ public class Main {
    public static void main(String[] args) { 
        
    ArrayList <String> cardg = new ArrayList();
-   ArrayList <String> cards = new ArrayList(); 
+   ArrayList <String> cards = new ArrayList();
+   ArrayList <Integer> moneys = new ArrayList();
+   ArrayList <Integer> moneyg = new ArrayList();
+   ArrayList <String> names = new ArrayList();
+   ArrayList <String> nameg = new ArrayList();
    
-   cardg.add("g1300");
+   cardg.add("g00000");
+   cards.add("s00000");
    
 //Print in the bill    
    //LocalDate today = LocalDate.now();
@@ -23,19 +28,19 @@ public class Main {
    do{
        
    switch (p.Menu()){
-       case 1 : p.Register(cards , cardg);   break;
+       case 1 : p.Register(cards , cardg , moneys , moneyg , names , nameg);   break;
        case 2 : p.Login(cards , cardg);      break;
        case 0 : exit = false; break;         
    }
    
-   }while(exit != false);
+   }while(exit == false);
    
-   switch(p.Main()){
-       case 1 : //Add money break;
+   //switch(p.Menus()){
+     //  case 1 : //Add money break;
                                 
-       case 2 : //Choose Movie break;
+       //case 2 : //Choose Movie break;
                                 
-   }
+   //}
    
     }
   
